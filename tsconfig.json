@@ -23,7 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  // TEMPORARY (migration only): the reference snapshot must never be
-  // type-checked as part of this project. Removed once reference-repo/ is gone.
-  "exclude": ["node_modules", "reference-repo"]
+  "exclude": ["node_modules"]
 }
