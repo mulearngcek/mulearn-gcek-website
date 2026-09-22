@@ -12,7 +12,9 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"],
+    // TEMPORARY (migration only): never lint the reference snapshot.
+    // Removed once reference-repo/ is gone.
+    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts", "reference-repo/**"],
   },
 ];
 
