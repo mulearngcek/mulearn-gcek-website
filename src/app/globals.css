@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+/* Map next/font variables to Tailwind theme fonts */
+@theme inline {
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-jbm);
+}
+
+@theme {
+  /* Warm whites & clean neutrals */
+  --color-paper: #ffffff;
+  --color-paper-warm: #fafaf9;
+  --color-paper-soft: #f8f9fa;
+  --color-ink: #111827;
+  --color-ink-soft: #6b7280;
+  --color-ink-muted: #9ca3af;
+
+  /* μLearn brand purple — the primary accent */
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+
+  /* Soft shadow system */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-lift: 0 4px 12px rgb(0 0 0 / 0.08), 0 1px 3px rgb(0 0 0 / 0.04);
+  --shadow-elevated: 0 10px 30px rgb(0 0 0 / 0.1), 0 4px 12px rgb(0 0 0 / 0.04);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-brand-200);
+  color: var(--color-ink);
+}
+
+/* Without JS, scroll reveals must never hide content */
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
